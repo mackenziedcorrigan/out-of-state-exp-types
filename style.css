@@ -1,0 +1,53 @@
+.accordion {
+  width: 75%;
+  background-color: #fff;
+  border-radius: 6px;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12);
+  margin: 20px auto;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+}
+
+.accordion input {
+  display: none;
+}
+
+.accordion label {
+  display: block;
+  padding: 15px 25px;
+  background-color: #f2f2f2;
+  font-weight: bold;
+  cursor: pointer;
+  position: relative;
+  transition: background-color 0.3s ease;
+}
+
+.accordion label:hover {
+  background-color: #f9f9f9;
+}
+
+.accordion label::after {
+  content: '▾';
+  position: absolute;
+  right: 20px;
+  font-size: 20px;
+  transition: transform 0.3s ease;
+}
+
+.accordion input:checked + label::after {
+  transform: rotate(180deg);
+}
+
+.accordion .content {
+  max-height: 0;
+  overflow: hidden;
+  background-color: #ffffff;
+  padding: 0 25px;
+  transition: max-height 0.5s ease;
+}
+
+.accordion input:checked + label + .content {
+  max-height: 10000px;
+  padding: 15px 25px;
+}
